@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Kayıt ol!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    #bodyy{
+        background-image: url("../../images/bg2.png");
+        background-repeat:repeat;
+        background-color: brown;
+    }
+    #buton{
+        width: 170px;      
+         height: 50px;
+         margin-top: 5px;
+         margin-left: 150px;
+         background-color:#b22222;
+         border:none;
+         
+    }
+    #kutu{
+        margin-left: 400px;
+        
+    }
+    
+</style>
+<body class="bg-light" id="bodyy" >
+    <nav class="navbar navbar-expand-md fixed-top" style="background-color: #b22222">
+        <a class="navbar-brand" href="/index" style="color:white"><img src="https://img.icons8.com/doodle/48/000000/pizza.png">
+          R͆e͆n͆C͆h͆i͆!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"
+          aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+  <div class="container">
+<div class="py-5 text-center"><br>
+  <h1>İşletme Sahibi Kayıt Sayfası </h1>
+  <p class="lead">İşletme Sahibi Kayıt Sayfamıza Hoşgeldiniz! Kaydolmak istiyorsanız, lütfen aşağıdaki şartları takip edin!</p>
+</div>
+
+</div>
+<div class="container" id="kutu">
+<div class="col-md-8 order-md-1">
+  <form class="needs-validation" action='./musteriKayit' method='POST' novalidate>
+    <div class="row">
+      <div class="col-md-8">
+            <label for="isletmeIsmi">İŞLETMENİN İSMİ</label>
+            <input type="text" class="form-control" name="isletmeismi" id="mekanIsmi" placeholder="işletmenin ismi" value="" required>
+          </div>
+    <div class="col-md-8">
+            <label for="isletmeAdres">İŞLETMENİN ADRESİ</label>
+            <input type="text" class="form-control" name="isletmeadres" id="mekanAdres" placeholder="işletmenin adresi" value="" required>
+    </div>
+    <div class="col-md-8 ">
+      <label for="username">KULLANICI ADI</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+      
+          <span class="input-group-text">@</span>
+        </div>
+        <input type="text" class="form-control" name="usernameM" id="username" placeholder="Kullanıcı adı" value="" required>
+        <div class="invalid-feedback" style="width: 100%;" >
+          Kullanıcı adı gereklidir.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <label for="email">E-POSTA <span class="text-muted"></label>
+      <input type="email" class="form-control" name="emailM" id="email" placeholder="isim@örnek.com" value="">
+      <div class="invalid-feedback">
+        Lütfen gönderi güncellemeleri için geçerli bir e-posta adresi girin.
+      </div>
+    </div>
+    <div class="col-md-8">
+      <label for="email">Resim 1<span class="text-muted"></label>
+      <input type="text" class="form-control" name="image1" id="email"  value="">
+      <div class="invalid-feedback">
+        Resim 1
+      </div>
+    </div>
+    <div class="col-md-8">
+      <label for="email">Resim 2<span class="text-muted"></label>
+      <input type="text" class="form-control" name="image2" id="email" value="">
+      <div class="invalid-feedback">
+        Resim 2
+      </div>
+    </div>
+    <div class="col-md-8">
+      <label for="email">Resim 3<span class="text-muted"></label>
+      <input type="text" class="form-control" name="image3" id="email" value="">
+      <div class="invalid-feedback">
+         Resim 3
+      </div>
+    </div>
+    <div class=" col-md-8">
+        <label for="password">PAROLA </label>
+        <input type="password" class="form-control" name="passwordM" id="password" placeholder="parola"  required>
+        <div class="invalid-feedback">
+         Geçerli bir parola gereklidir.
+        </div>
+      </div></div><br>
+        <div class="col-md-4"  >
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="buton">Kayıt ol</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>

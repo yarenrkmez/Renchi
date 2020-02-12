@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+  body {
+    background-image: url("../../images/bg1.png");
+    background-repeat: repeat;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  #textbox {
+    height: 25px;
+    width: 200px;
+    margin-left: 5px;
+  }
+
+  #textbox2 {
+    height: 25px;
+    width: 300px;
+    margin-bottom: 3px;
+  }
+
+  #mekanlar {
+    margin-left: 1000px;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#B22222">
+    <a class="navbar-brand" href="/index" style="font-size:xx-large;color: white">RenChi</a>
+    <%if(msg!=undefined){%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong><%=msg%></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <%}%>
+    <div class="collapse navbar-collapse justify-content-end navbar-brand" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+         <form action='./logout' method='GET'>
+         <li class="nav-item mr-6" style="top:100px">
+          <a class="nav-link" href="./logout" style="font-size:x-large;padding:15px;color:ghostwhite;right:0px" id="logout">Çıkış yap</a>
+          </form>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container" style="margin-top:10px">
+      <ul>
+        <li>İşletmenin Adı: <label for="inputIsletme"><%=mekan.name%></label></li>
+        <li>İşletmenin Adresi: <label for="inputAdres"><%=mekan.adres%></label></li>
+        <li>İşletmenin Puanı: <label for="inputPuan"><%=mekan.puan%></label></li>
+        <li>İşletmenin Kodu: <label for="inputKod"><%=mekan.mekanKodu%></label></li>
+        <form action="/isletmeSahibi" method="POST">
+        <li>Kullanıcı E-maili:<input type="email" id="textbox" name="kullaniciEmail" placeholder="E-posta"></p>
+        <li>Puan Miktarı:<input type="text" id="textbox" name="kullanilacakPuan" placeholder="Puan"></p>
+        </li>
+        <button id="puan" type="submit">Puan Kullan</button><br><br>
+      </form>
+      <form action="/isletmeSahibi" method="POST">
+         <input type="submit" name="mekanKoduG" value="Kodu Değiştir" placeholder="Button">
+      </form>
+      </ul>
+
+  <form action="/isletmeSahibi" method="POST">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src='<%=mekan.pic1%>' height="225px" width="350px">
+          <div class="card-body">
+       
+            <input type="text" id="textbox2" name="resimUrl1" placeholder="Url">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src='<%=mekan.pic2%>' height="225px" width="350px">
+          <div class="card-body">
+         
+            <input type="text" id="textbox2" name="resimUrl2" placeholder="Url">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src='<%=mekan.pic3%>' height="225px" width="350px">
+          <div class="card-body">
+            
+            <input type="text" id="textbox2" name="resimUrl3" placeholder="Url">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button type="sumbit" class="btn btn-sm btn-outline"
+          style="width: 200px;height: 40px;margin-left:470px;margin-bottom: 20px;background-color:#b22222;color:white">Güncelle</button>
+      </div>
+    </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

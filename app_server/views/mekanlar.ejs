@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<html lang="en">
+
+<head>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    #kesfet {
+
+      background-image: url("../../images/mekanjum.jpg");
+      background-color: rgba(200, 0, 0, 0.3);
+      height: 250px;
+    }
+
+    #carouselExampleControls {
+      top: -65px;
+    }
+
+    #favm {
+      top: -50px;
+    }
+
+    #mekanbaslik {
+      top: -65px;
+    }
+
+    #mekankutulari {
+      margin-top: -50px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    .open-button {
+      background-color: #FF7F50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      top: -50px;
+      bottom: 10px;
+      right: 28px;
+      width: 200px;
+
+    }
+    /* Add styles to the form container */
+    .form-container {
+      max-width: 300px;
+      max-height: 300px;
+      padding: 10px;
+      background-color: white;
+
+
+    }
+
+
+    /* Set a style for the submit/send button */
+    .form-container .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+
+      right: 50px;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover,
+    .open-button:hover {
+      opacity: 1;
+    }
+    html {
+  scroll-behavior: smooth;
+}
+
+
+  </style>
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#B22222">
+    <a class="navbar-brand" href="/mekanlar" style="font-size:xx-large;color: white">RenChi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end  navbar-brand" id="navbarSupportedContent">
+      <ul class="navbar-nav ">
+        <li class="nav-item mr-6" style="top:100px">
+          <a class="nav-link" href="/kullanici" style="font-size:x-large;padding:15px;color:ghostwhite">Profil</a>
+        </li>
+        </li>
+        <form class="form-inline my-2 my-lg-0" action="/mekanlar" method="POST">
+          <input class="form-control mr-sm-2" type="search" name="mekanAdi" placeholder="Search" aria-label="Search">
+          <button class="btn my-2 my-sm-0" style="background-color:#FF7F50;color:white;" type="submit">ARA!</button>
+        </form>
+      </ul> 
+      <%if(error!=undefined){%>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong><%=error%></strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <%}%>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center" id="kesfet">
+    <h1 class="display-5" style="color:darkorange"><b>RenChi İle Mekanlar</b></h1>
+
+    <a class="btn btn-lg" href="#mekanbaslik" style="background-color:#FF7F50;color:white;" button>Keşfet</a>
+    <a class="btn btn-lg" href="#carouselExampleControls" style="background-color:#FF7F50;color:white;" button>Favori
+      Mekanlar</a>
+  </div>
+  <div class="alert alert-warning text-center" id="favm" style="font-size:xx-large" role="alert">
+    Favori Mekanlar
+  </div>
+  <form action="/mekanlar" method="POST"><form>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="http://www.lmk.com.tr/wp-content/uploads/2013/05/edirne3.jpg" style="height:445px"
+          class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          
+          <input type="submit" class="btn btn-warning" name="mekanYonlen" value="Leman Kültür" placeholder="Button" style="background-color:#FF7F50">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../../images/Livera-Cafe-Restaurant2.jpg"
+          style="height:445px" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block ">
+          <input type="submit" class="btn btn-warning" name="mekanYonlen" value="Livera Cafe" placeholder="Button" style="background-color:#FF7F50">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  </form>
+  <div class="alert alert-warning text-center" id="mekanbaslik" style="font-size:xx-large" role="alert">
+    <h1><strong>MEKANLAR</strong></h1>
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-xs-3 " style="margin-left: 250px">
+
+          <button class="open-button" onclick="openForm1()"><a href="#form1" style="color:white">Livera</a></button>
+          <button class="open-button" onclick="openForm2()"><a href="#form2" style="color:white">Kada</a></button>
+          <button class="open-button" onclick="openForm3()"><a href="#form3" style="color:white">Tahmis</a></button>
+          <button class="open-button" onclick="openForm4()"><a href="#form4" style="color:white">Leman</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="w3-container" id="form1">
+
+    <button type="button" class="btn cancel" onclick="closeForm1()"><img
+        src="https://img.icons8.com/ios/25/000000/delete-sign.png" style="right: 50px;"></button>
+    <form class="form-container">
+
+      <div class="w3-card-4">
+        <header class="w3-container w3-danger">
+          <h1>Livera Cafe</h1>
+        </header>
+        <img src="../../images/Livera-Cafe-Restaurant2.jpg" width="100%" height="100%">
+        <div class="w3-container">
+          <p>İçecek ve Yiyecek Menüsü Bulunduran Kafe</p>
+        </div>
+
+        <footer class="w3-container w3-white">
+        </footer>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="w3-container" id="form2">
+    <button type="button" class="btn cancel" onclick="closeForm2()"><img
+        src="https://img.icons8.com/ios/25/000000/delete-sign.png"></button>
+    <form class="form-container">
+
+      <div class="w3-card-4">
+        <header class="w3-container w3-danger">
+          <h1>Kada Cafe</h1>
+        </header>
+        <img src="../../images/kada.jpg" width="100%" height="100%">
+        <div class="w3-container">
+          <p>İçecek ve Yiyecek Menüsü Bulunduran Kafe</p>
+        </div>
+
+        <footer class="w3-container w3-white">
+        </footer>
+      </div>
+    </form>
+  </div>
+
+
+
+  <div class="w3-container" id="form3">
+    <button type="button" class="btn cancel" onclick="closeForm3()"><img
+        src="https://img.icons8.com/ios/25/000000/delete-sign.png"></button>
+    <form class="form-container">
+
+      <div class="w3-card-4">
+        <header class="w3-container w3-danger">
+          <h1>Tahmis Köftecisi</h1>
+        </header>
+        <img src="../../images/caption.jpg" width="100%" height="100%">
+        <div class="w3-container">
+          <p>Restaurant</p>
+        </div>
+
+        <footer class="w3-container w3-white">
+        </footer>
+      </div>
+    </form>
+  </div>
+
+  <div class="w3-container" id="form4">
+    <button type="button" class="btn cancel" onclick="closeForm4()"><img
+        src="https://img.icons8.com/ios/25/000000/delete-sign.png"></button>
+    <form action="/action_page.php" class="form-container">
+
+      <div class="w3-card-4">
+        <header class="w3-container w3-danger">
+          <h1>Leman Kültür</h1>
+        </header>
+        <img src="http://www.lmk.com.tr/wp-content/uploads/2013/05/edirne3.jpg" width="100%" height="100%">
+        <div class="w3-container">
+          <p>Cafe/Bar</p>
+        </div>
+
+        <footer class="w3-container w3-white">
+        </footer>
+      </div>
+    </form>
+  </div>
+  </div>
+
+
+</body>
+
+
+<script src="../../js/mekanlar.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

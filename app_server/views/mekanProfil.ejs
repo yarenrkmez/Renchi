@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+
+
+
+    <style>
+        img:hover {
+            /* Start the shake animation and make the animation last for 0.5 seconds */
+            animation: shake 0.5s;
+
+            /* When the animation is finished, start again */
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        
+       ul{
+   list-style-type: none; 
+       }
+        .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  
+}
+
+/* Create a custom radio button */
+.checkmark {
+    
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 45px;
+  color: rgba(211, 211, 211, 0.233);
+  width: 45px;
+  background-color: #eee;
+  padding: 10%;
+   background: url('../../images/h48.png') 
+}
+
+/* On mouse-over, add a grey background color
+.container:hover input ~ .checkmark {
+  background-color:black;
+} */
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color:ivory
+  
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 
+	
+	background: rosybrown;
+
+} 
+
+#heart{
+margin-left: 230px;
+}
+.button {
+  
+  
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+}
+
+    </style>
+
+</head>
+
+<body style="background-color:black"> 
+    <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color:#B22222">
+        <a class="navbar-brand" style="font-size:xx-large;color: white">RenChi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+         
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end navbar-brand" id="navbarSupportedContent">
+          <ul class="navbar-nav >">
+            <li class="nav-item mr-2" style="top:100px">
+              <a class="nav-link" href="./kullanici" style="font-size:x-large;padding:15px;color:ghostwhite">Profil</a>
+            </li>
+            </li>
+            <%if(error!=undefined){%>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong><%=error%></strong> 
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              <%}%>
+          </ul> 
+         
+        </div>
+      </nav>
+
+    <main role="main">
+<form action="/mekanProfil" method="POST">
+        <section class="jumbotron text-center" style=" background: url(../../images/RN.gif);padding: 19%;margin-top:0;background-size:contain;background-repeat: no-repeat">
+            <div class="container">
+            
+                <h1 class="jumbotron-heading" style= "color: rgba(233, 227, 227, 0.829)"><%=name%> <br> Mekan Puani:<%=puan%></h1>
+
+                <p class="lead " style="color: rgba(233, 227, 227, 0.829)"><%=address%></p>
+                <!--mekanlara özel bac -->
+                <div class="row" id="heart">
+                <h2 style="color:ivory">1</h2> <label class="col-md-1"  >
+                    <input type="radio" checked="checked" name="puan" value="1">
+                    <span class="checkmark" ></span>
+                  </label>
+                  <h2 style="color:ivory">2</h2> <label class="col-md-1"> 
+                    <input  type="radio" checked="checked" name="puan" value="2">
+                    <span class="checkmark"></span>
+                  </label>
+                  <h2 style="color:ivory">3</h2><label class="col-md-1">
+                    <input  type="radio" checked="checked" name="puan" value="3">
+                    <span class="checkmark"></span>
+                  </label>
+                  <h2 style="color:ivory">4</h2><label class="col-md-1">
+                    <input  type="radio" checked="checked" name="puan" value="4">
+                    <span class="checkmark"></span>
+                  </label>
+                  <h2 style="color:ivory">5</h2> <label class="col-md-1"> 
+                    <input  type="radio" checked="checked" name="puan" value="5">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  
+                </div>
+             
+            </div> <input type="text" name="mekanKoduP"  class="button" placeholder="mekan kodu" style="border-radius: 20px">
+             <button type="submit" class="btn button" style="background-color:#b22222;color: white;"><strong>Puanla</strong></button> 
+        </section>
+</form>
+                      
+                  
+        <table>
+            <tr>
+
+
+                <td>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm" style="width: 500%">
+
+                            <div class="w3-row-padding" style="width: 250%">
+                                <div class="w3-container w3-third-center">
+                                    <img src='<%=img1%>'style=" width: 350px;height: 250px;cursor:pointer;margin-top: 15px;margin-right:12px " onclick="onClick(this)"
+                                        class="w3-hover-opacity" >
+                                </div>
+
+                            </div>
+                            
+                                <br>
+
+                            
+                        </div>
+                    </div>
+                </td>
+
+
+                <td>
+                    <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm" style="width: 500%">
+
+                            <div class="w3-row-padding" style="width: 250%">
+                                <div class="w3-container w3-third-center">
+                                    <img src='<%=img2%>' style=" width: 350px;height: 250px;cursor:pointer;margin-top: 15px;margin-right:12px " onclick="onClick(this)"
+                                        class="w3-hover-opacity" >
+                                </div>
+                               
+                            </div>
+                             <br>
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm" style="width: 500%">
+
+                            <div class="w3-row-padding" style="width: 250%">
+                                <div class="w3-container w3-third-center">
+                                    <img src='<%=img3%>' style=" width: 350px;height: 250px;cursor:pointer;margin-top: 15px;margin-right:12px " onclick="onClick(this)"
+                                        class="w3-hover-opacity" >
+                                </div>
+                                
+                            </div>
+                           <br>
+                        </div>
+
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+            <div class="w3-modal-content w3-animate-zoom">
+                <img id="img01" style="width:100%">
+            </div>
+        </div>
+
+
+    </main>
+    <script>
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
